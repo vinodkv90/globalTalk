@@ -1,0 +1,56 @@
+@use "@/styles/mixin";
+
+.header {
+    position: fixed;
+    top: 0;
+    inset-inline: 0;
+    background-color: var(--background);
+    border-bottom: mixin.size(1) solid var(--border);
+    :global(.row) {
+        --gutter-x: 0;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+    }
+    .logo {
+        a {
+            font-family: var(--font-dela-gothic-one);
+            color: var(--foreground);
+            font-size: mixin.size(16);
+            font-weight: 400;
+            line-height: 1;
+            @include mixin.min(1200) {
+                font-size: mixin.size(20);
+            }
+        }
+        &.smallScreen {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+    .menu {
+        margin-inline-end: auto;
+        display: flex;
+        align-items: center;
+        &::before {
+            content: '';
+            width: mixin.size(1);
+            height: mixin.size(17);
+            background-color: var(--border);
+            display: block;
+            margin-left: mixin.size(30);
+            margin-right: mixin.size(15);
+        }
+    }
+    &:global(.mobile) {
+        padding: mixin.size(10) 0;
+    }
+    &:global(.desktop) {
+        padding: mixin.size(19) 0;
+    }
+    &.fix {
+
+    }
+}

@@ -1,0 +1,36 @@
+@use '@/styles/mixin';
+
+.dropdown {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    padding-top: mixin.size(19);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(mixin.size(10));
+    pointer-events: none;
+    transition: 0.3s opacity ease-in-out, 0.3s visibility ease-in-out, 0.3s transform ease-in-out;
+    .dropdownList {
+        background-color: var(--background);
+        border: mixin.size(1) solid var(--border);
+        padding: mixin.size(10) ;
+        width: max-content;
+        a {
+            display: block;
+            color: var(--foreground-light);
+            font-size: mixin.size(14);
+            font-weight: 600;
+            line-height: 1.3;
+            padding:  mixin.size(10) mixin.size(20);
+            @include mixin.hoverStyle {
+                background-color: var(--shade);
+            }
+        }
+    }
+    &.open {
+        pointer-events: all;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+}

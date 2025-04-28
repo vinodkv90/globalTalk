@@ -1,0 +1,198 @@
+@import "variables";
+
+@function size($target, $context: $base-size) {
+    @return calc(($target / $context) * 1rem);
+}
+
+// Media Queries
+@mixin min($breakpoint, $property: width) {
+    @media screen and (min-#{$property}: #{$breakpoint}px) {
+        @content;
+    }
+}
+
+@mixin max($breakpoint, $property: width) {
+    @media screen and (max-#{$property}: #{$breakpoint}px) {
+        @content;
+    }
+}
+
+@mixin min-max($bp-min, $bp-max, $prop-min: width, $prop-max: $prop-min) {
+    @media screen and (min-#{$prop-min}: #{$bp-min}px) and (max-#{$prop-max}: #{$bp-max}px) {
+        @content;
+    }
+}
+
+@mixin max-height($breakpoint, $property: height) {
+    @media screen and (max-#{$property}: #{$breakpoint}px) {
+        @content;
+    }
+}
+
+@mixin lineHeight($font, $line) {
+    $val: calc($line/$font);
+    $val1: floor($val * 100);
+    line-height: calc($val1/100);
+}
+
+@function lineHeight($font, $line) {
+    @return #{calc($line/$font)}em;
+}
+
+@mixin lineClamp($lines) {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+@mixin placeholder($color) {
+    ::placeholder {
+        color: $color;
+        opacity: 1;
+    }
+
+    :-ms-input-placeholder {
+        color: $color;
+    }
+
+    ::-ms-input-placeholder {
+        color: $color;
+    }
+}
+
+@mixin aspectRatio($w, $h) {
+    position: relative;
+
+    &::after {
+        content: "";
+        position: relative;
+        width: 100%;
+        display: block;
+        padding-bottom: calc(($h / $w) * 100%);
+    }
+
+    & img,
+    &>picture {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.3s all ease-in-out;
+
+        img {
+            width: 100%;
+            height: 100%;
+            transition: 0.3s all ease-in-out;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+}
+
+@mixin hoverStyle {
+    &:hover {
+        @media (hover: hover) {
+            @content;
+        }
+    }
+}
+
+@mixin activeStyle {
+    &:active {
+        @media (hover: hover) {
+            @content;
+        }
+    }
+}
+
+@mixin removeFocus($value) {
+    @each $prop, $inp in $value {
+        &:focus:not(:hover):not(:active) {
+            #{$prop}: #{$inp} !important;
+        }
+    }
+}
+
+@mixin outlineNone() {
+
+    &,
+    &:is(:focus, :hover, :active, :focus-within, :focus-visible) {
+        box-shadow: none;
+    }
+
+    &:is(button) {
+        box-shadow: none !important;
+    }
+}
+
+%overflowHidden {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    overflow: hidden;
+}
+
+@mixin overflowHidden() {
+    @extend %overflowHidden;
+}
+
+@mixin lineClipp($val: 1) {
+    @if $val ==1 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 100%;
+    }
+}
+
+@mixin animation($val) {
+    @keyframes #{$val} {
+        @content;
+    }
+}
+
+@mixin shimmer {
+    background: #f6f7f8;
+    background-image: linear-gradient(to right,
+            #f6f7f8 0%,
+            #edeef1 20%,
+            #f6f7f8 40%,
+            #f6f7f8 100%);
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    background-size: 936px;
+
+    &:global {
+        animation-name: placeholderShimmer;
+    }
+}
+
+@mixin hoverColor($hovercolor: $primary-color,
+    $activecolor: $primary-hover-color ) {
+    transition: all 0.3s ease-in-out;
+    color: currentColor;
+
+    @include hoverStyle {
+        color: $hovercolor;
+    }
+
+    @include activeStyle {
+        color: $activecolor;
+    }
+}
+
+@mixin only-windows {
+    @supports (not (-apple-pay-button-style: inherit)) {
+        @include min(1200) {
+            @content;
+        }
+    }
+}
+
+// Apply the scoped animation mixin to component and generate unique animation names

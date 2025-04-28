@@ -1,0 +1,23 @@
+@use '@/styles/mixin';
+
+.menuList {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    li {
+        display: block;
+        position: relative;
+        a {
+            display: block;
+            padding: mixin.size(15) mixin.size(15);
+            color: var(--foreground-light);
+            font-size: mixin.size(16);
+            font-weight: 600;
+            line-height: normal;
+            &.active {
+                color: var(--primary);
+            }
+        }
+    }
+}
