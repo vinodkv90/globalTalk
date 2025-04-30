@@ -1,3 +1,4 @@
+import { color } from "motion";
 import { NextResponse } from "next/server";
 
 const corsHeaders = {
@@ -24,28 +25,33 @@ export async function GET(request) {
                 {
                     id: 1,
                     label: 'Popular words',
-                    count: 600
+                    count: 600,
+                    icon: 'flash',
                 },
                 {
                     id: 2,
                     label: 'Mini-games',
-                    count: 20
+                    count: 20,
+                    icon: 'controller',
                 }
             ],
             images: [
                 {
                     id: 1,
-                    src: '/home/banner_charector.svg',
-                    alt: 'charector'
+                    src: '/home/banner_element.svg',
+                    mobSrc: '/home/banner_element.svg',
+                    alt: 'element' 
                 },
                 {
                     id: 2,
-                    src: '/home/banner_element.svg',
-                    alt: 'element' 
+                    src: '/home/banner_charector.svg',
+                    mobSrc: '/home/banner_charector.svg',
+                    alt: 'charector'
                 },
                 {
                     id: 3,
                     src: '/home/banner_plant.svg',
+                    mobSrc: '/home/banner_plant_mob.svg',
                     alt: 'plant' 
                 }
             ]
@@ -60,15 +66,19 @@ export async function GET(request) {
             options: [
                {
                 id: 1,
+                type: 'sprint',
                 label: 'Sprint',
-                image: '/home/shoes.svg.',
+                image: '/home/shoes.svg',
                 alt: 'shoes',
+                color: '#F2D4DC',
                },
                {
                 id: 2,
+                type: 'call',
                 label: 'Audio call',
                 image: '/home/speaker.svg',
                 alt:'speaker',
+                color: '#C3DCE3',
                }
             ]
         },
@@ -80,6 +90,7 @@ export async function GET(request) {
             link: '/vocabulary',
             link_text: 'Textbook',
             image: '/home/charector_3.svg',
+            mobImage: '/home/charector_3_mob.svg',
             alt: 'charector 3',
         },
         {

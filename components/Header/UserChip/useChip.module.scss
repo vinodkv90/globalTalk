@@ -1,0 +1,54 @@
+@use "@/styles/mixin";
+
+.userChip {
+    display: flex; align-items: center;
+    .userChipWrap {
+        display: flex;
+        align-items: center;
+        column-gap: mixin.size(4);
+        @include mixin.min(768) {
+            column-gap: mixin.size(6);
+        }
+        @include mixin.min(992) {
+            column-gap: mixin.size(10);
+        }
+        .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: mixin.size(32);
+            height: mixin.size(32);
+            border-radius: mixin.size(40);
+            color: var(--primary);
+            font-size: mixin.size(12);
+            font-weight: 700;
+            line-height: 1;
+            background-color: var(--primary-light);
+            @include mixin.min(768) {
+                width: mixin.size(36);
+                height: mixin.size(36);
+                font-size: mixin.size(14);
+            }
+            @include mixin.min(992) {
+                width: mixin.size(40);
+                height: mixin.size(40);
+                font-size: mixin.size(16);
+            }
+        }
+        .name {
+            color: var(--foreground-light);
+            font-size: mixin.size(12);
+            font-weight: 600;
+            line-height: 1;
+            @include mixin.min(768) {
+                font-size: mixin.size(14);
+            }
+            @include mixin.min(992) {
+                font-size: mixin.size(16);
+            }
+        }
+    }
+    .logoutBtn {
+        margin-left: mixin.size(10);
+    }
+}

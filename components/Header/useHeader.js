@@ -1,8 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useNextFetch } from '@/customHooks/useNextFetch';
+import { Token, User } from '../Context/context';
+import { getToken } from '@/util/authUtil';
 
 export const useHeader = () => {
   const [parsedData, setParsedData] = useState(null);
+  const { user } = useContext(User)
+  const { token, setToken } = useContext(Token)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,8 +19,13 @@ export const useHeader = () => {
       }
     };
 
+    const tkn = getToken()
+    if(tkn) {
+      setToken(tkn)
+    }
+
     fetchData();
   }, []);
 
-  return { parsedData };
+  return { parsedData, token, user };
 };

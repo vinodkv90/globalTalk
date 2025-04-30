@@ -1,0 +1,22 @@
+@use "@/styles/mixin";
+
+.register {
+    padding-top: mixin.size(30);
+    .title {
+        font-size: mixin.size(24);
+        margin-bottom: mixin.size(20);
+        text-align: center;
+        @include mixin.min(768) {
+            font-size: mixin.size(26);
+        }
+        @include mixin.min(992) {
+            font-size: mixin.size(28);
+        }
+        @include mixin.min(1200) {
+            font-size: mixin.size(30);
+        }
+    }
+    .submitBtn {
+        width: 100%;
+    }
+}

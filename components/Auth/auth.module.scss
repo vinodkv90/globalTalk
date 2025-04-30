@@ -1,0 +1,12 @@
+@use "@/styles/mixin";
+
+.auth {
+    padding: mixin.size(100) 0;
+    @include mixin.min(992) {
+        padding: mixin.size(150) 0;
+    }
+    .authWrap {
+        margin-inline: auto;
+        max-width: mixin.size(360);
+    }
+}

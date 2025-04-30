@@ -1,0 +1,42 @@
+@use "@/styles/mixin";
+
+.heroSection {
+    background-color: var(--shade);
+    padding-top: mixin.size(107);
+    padding-bottom: mixin.size(94);
+    @include mixin.min(768) {
+        padding-top: mixin.size(40);
+        padding-bottom: mixin.size(50);
+    }
+    @include mixin.min(992) {
+        padding-top: mixin.size(80);
+        padding-bottom: mixin.size(70);
+    }
+    @include mixin.min(1200) {
+        padding-top: mixin.size(90);
+        padding-bottom: mixin.size(80);
+    }
+    @include mixin.min(1400) {
+        padding-top: mixin.size(100);
+        padding-bottom: mixin.size(90);
+    }
+    @include mixin.min(1600) {
+        padding-top: mixin.size(110);
+    padding-bottom: mixin.size(95);
+    }
+    overflow: hidden;
+    :global(.row) {
+        align-items: center;
+        flex-direction: column;
+        row-gap: mixin.size(35);
+        @include mixin.min(768) {
+            flex-direction: row;
+        }
+        & > * {
+            width: 100%;
+            @include mixin.min(768) {
+                width: 50%;
+            }
+        }
+    }
+}

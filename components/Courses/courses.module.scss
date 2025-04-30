@@ -1,0 +1,100 @@
+@use "@/styles/mixin";
+
+.coursesSection {
+    padding: mixin.size(45) 0;
+    @include mixin.min(992) {
+        padding: mixin.size(70) 0;
+    }
+    :global(.row) {
+        align-items: center;
+        flex-direction: column;
+        row-gap: mixin.size(20);
+        @include mixin.min(768) {
+            flex-direction: row;
+        }
+        & > * {
+            width: 100%;
+            @include mixin.min(768) {
+                width: 50%;
+            }
+        }
+    }
+    .title {
+        max-width: mixin.size(475);
+        margin-bottom: mixin.size(30);
+    }
+    .description {
+        text-align: center;
+        max-width: mixin.size(396);
+        margin-inline: auto;
+        margin-bottom: 0;
+        @include mixin.min(576) {
+            text-align: start;
+            margin-inline: 0;
+        }
+    }
+    .coursesWrap {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        column-gap: mixin.size(30);
+        margin-top: mixin.size(53);
+        @include mixin.min(576) {
+            justify-content: flex-start;
+            margin-top: mixin.size(65);
+        }
+        .course {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding: mixin.size(14);
+            border-radius: mixin.size(14);
+            .image {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            h3 {
+                color: var(--foreground-light);
+                font-size: mixin.size(14);
+                font-weight: 700;
+                line-height: 1.4;
+                margin-bottom: 0;
+                @include mixin.min(992) {
+                    font-size: mixin.size(16);
+                }
+            }
+            &:global(.sprint) {
+                width: mixin.size(114);
+                height: mixin.size(112);
+                @include mixin.min(1200) {
+                    width: mixin.size(129);
+                }
+                .image {
+                    @include mixin.aspectRatio(131, 106);
+                    bottom: mixin.size(39);
+                    width: mixin.size(131);
+                    position: absolute;
+                }
+                h3 {
+                    color: var(--secondary);
+                }
+            }
+            &:global(.call) {
+                width: mixin.size(172);
+                height: mixin.size(112);
+                .image {
+                    @include mixin.aspectRatio(91, 106);
+                    bottom: mixin.size(39);
+                    width: mixin.size(91);
+                    position: absolute;
+                }
+                h3 {
+                    color: var(--primary);
+                }
+            }
+        }
+    }
+}

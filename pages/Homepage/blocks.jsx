@@ -1,4 +1,4 @@
-import Courses from '@/components/Courses/courses'
+import Courses from '@/components/Courses'
 import Hero from '@/components/Hero'
 import Statistics from '@/components/Statistics'
 import Vocabulary from '@/components/Vocabulary'

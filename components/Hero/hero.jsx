@@ -1,22 +1,18 @@
+'use client'
+import { useDevice } from '@/customHooks/useDevice';
+import IcoMoon from '../IcoMoon';
+import LinkButton from '../LinkButton';
 import styles from './hero.module.scss'
+import Content from './Content';
+import Images from './Images';
 
 const Hero = (data) => {
-  console.log('data', data);
   return (
-    <section>
+    <section className={styles.heroSection}>
       <div className="container">
         <div className="row">
-          <div className="col-6">
-              <div className={styles.content}>
-                <h1 className={`text ${styles.text}`}>{data?.text}</h1>
-                <h2 className={`title ${styles.title}`}>
-                  <span>{data?.title?.line_1}</span>
-                  <span>{data?.title?.line_2}</span>
-                  <span>{data?.title?.line_3}</span>
-                </h2>
-              </div>
-          </div>
-          <div className="col-6"></div>
+          <Content data={data} />
+          <Images images={data?.images} />
         </div>
       </div>
     </section>

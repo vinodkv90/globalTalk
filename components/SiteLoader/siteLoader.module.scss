@@ -1,0 +1,43 @@
+@use '@/styles/mixin';
+
+body {
+    overflow: hidden;
+    &:global(.loaded) {
+        overflow: auto;
+    }
+}
+
+.loader {
+    position: fixed;
+    inset: 0;
+    background-color: var(--background);
+    z-index: 16001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .logo {
+        position: relative;
+        color: rgba($color: #000, $alpha: 0.1);
+        font-family: var(--font-dela-gothic-one);
+        font-size: mixin.size(16);
+        font-weight: 400;
+        line-height: 1;
+        letter-spacing: mixin.size(0.5);
+        @include mixin.min(1200) {
+            font-size: mixin.size(20);
+        }
+        .logoLoader {
+            position: absolute;
+            inset: 0;
+            color: var(--primary);
+            font-family: var(--font-dela-gothic-one);
+            font-size: mixin.size(16);
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: mixin.size(0.5);
+            @include mixin.min(1200) {
+                font-size: mixin.size(20);
+            }
+        }
+    }
+}

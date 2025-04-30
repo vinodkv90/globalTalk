@@ -1,0 +1,14 @@
+@use "@/styles/mixin";
+
+.image {
+    @include mixin.aspectRatio(335,260);
+    img {
+        object-fit: contain;
+    }
+    @include mixin.min(992) {
+        @include mixin.aspectRatio(580,445);
+        img {
+            object-fit: contain;
+        }
+    }
+}

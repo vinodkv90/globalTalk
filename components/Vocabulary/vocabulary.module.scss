@@ -1,1 +1,53 @@
 @use "@/styles/mixin";
+
+.vocabularySection {
+    background-color: var(--shade);
+    padding: mixin.size(45) 0 0;
+    @include mixin.min(768) {
+        padding: mixin.size(70) 0;
+    }
+    :global(.row) {
+        align-items: center;
+        row-gap: mixin.size(8);
+        & > * {
+            width: 100%;
+            @include mixin.min(768) {
+                width: 50%;
+            }
+        }
+    }
+    .vocabularyContent {
+        .title {
+            text-align: center;
+            margin-bottom: mixin.size(8);
+            @include mixin.min(576) {
+                text-align: start;
+            }
+        }
+        .description {
+            text-align: center;
+            max-width: mixin.size(396);
+            margin-inline: auto;
+            margin-bottom: mixin.size(16);
+            @include mixin.min(576) {
+                text-align: start;
+                margin-inline: 0;
+            }
+        }
+        :global(.btn) {
+            margin-inline: auto;
+            @include mixin.min(576) {
+                margin-inline: 0;
+            }
+        }
+        .image {
+            @include mixin.min(768) {
+                margin-bottom: mixin.size(-90);
+            }
+            @include mixin.min(992) {
+                margin-bottom: mixin.size(-70);
+            }
+        }
+    }
+}
+    

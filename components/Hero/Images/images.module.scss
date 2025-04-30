@@ -1,0 +1,117 @@
+@use "@/styles/mixin";
+
+.images {
+    position: relative;
+    width: 100%;
+    .image {
+        width: 100%;
+        &:global(.image_1) {
+            @include mixin.aspectRatio(143,171);
+            position: absolute;
+            left: 15%;
+            top: 34%;
+            max-width: mixin.size(60);
+            z-index: 0;
+            @include mixin.min(576) {
+                max-width: mixin.size(80);
+                left: 17%;
+            }
+            @include mixin.min(768) {
+                max-width: mixin.size(85);
+                left: mixin.size(-16);
+            }
+            @include mixin.min(992) {
+                max-width: mixin.size(113);
+                left: mixin.size(-26);
+            }
+            @include mixin.min(1200) {
+                max-width: mixin.size(123);
+                left: mixin.size(-36);
+            }
+            @include mixin.min(1400) {
+                max-width: mixin.size(133);
+            }
+            @include mixin.min(1600) {
+                max-width: mixin.size(143);
+            }
+            img {
+                object-fit: contain;
+            }
+        }
+        &:global(.image_2) {
+            @include mixin.aspectRatio(609, 507);
+            max-width: mixin.size(278);
+            z-index: 1;
+            margin-inline: auto;
+            @include mixin.min(576) {
+                max-width: mixin.size(285);
+            }
+            @include mixin.min(768) {
+                max-width: mixin.size(309);
+            }
+            @include mixin.min(992) {
+                max-width: mixin.size(459);
+                margin-inline: 0;
+            }
+            @include mixin.min(1200) {
+                max-width: mixin.size(459);
+                margin-inline: 0;
+            }
+            @include mixin.min(1400) {
+                max-width: mixin.size(509);
+                margin-inline: 0;
+            }
+            @include mixin.min(1600) {
+                max-width: mixin.size(609);
+                margin-inline: 0;
+            }
+            img {
+                object-fit: contain;
+            }
+        }
+        &:global(.image_3) {
+            @include mixin.aspectRatio(173,266);
+            position: absolute;
+            left: 50%;
+            bottom: mixin.size(-30);
+            max-width: mixin.size(173);
+            z-index: 1;
+            filter: blur(mixin.size(2));
+            @include mixin.min(576) {
+                max-width: mixin.size(200);
+                bottom: mixin.size(-60);
+            }
+            @include mixin.min(768) {
+                @include mixin.aspectRatio(536,573);
+                position: absolute;
+                max-width: mixin.size(290);
+                bottom: mixin.size(-100);
+                margin-inline: 0;
+                left: 50%;
+                bottom: mixin.size(-60);
+            }
+            @include mixin.min(992) {
+                left: 55%;
+                bottom: mixin.size(-80);
+                max-width: mixin.size(433);
+                filter: blur(mixin.size(10));
+            }
+            @include mixin.min(1200) {
+                left: 55%;
+                bottom: mixin.size(-80);
+                max-width: mixin.size(433);
+            }
+            @include mixin.min(1400) {
+                left: 50%;
+                max-width: mixin.size(480);
+            }
+            @include mixin.min(1600) {
+                left: 54%;
+                max-width: mixin.size(536);
+            }
+            img {
+                object-fit: contain;
+            }
+        }
+    }
+}

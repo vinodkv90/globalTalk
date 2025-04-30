@@ -4,8 +4,11 @@
     position: fixed;
     top: 0;
     inset-inline: 0;
+    z-index: 99;
+    display: flex;
+    align-items: center;
     background-color: var(--background);
-    border-bottom: mixin.size(1) solid var(--border);
+    border-bottom: mixin.size(1) solid var(--border-light);
     :global(.row) {
         --gutter-x: 0;
         align-items: center;
@@ -45,9 +48,11 @@
         }
     }
     &:global(.mobile) {
+        height: mixin.size(58);
         padding: mixin.size(10) 0;
     }
     &:global(.desktop) {
+        height: mixin.size(88);
         padding: mixin.size(19) 0;
     }
     &.fix {

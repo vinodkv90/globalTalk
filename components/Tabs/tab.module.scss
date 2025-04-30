@@ -1,0 +1,61 @@
+@use "@/styles/mixin";
+
+.tab {
+    width: 100%;
+    margin-bottom: mixin.size(20);
+    .tabHead {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        position: relative;
+        padding: mixin.size(3);
+        border-radius: mixin.size(15);
+        background-color: var(--shade);
+        width: max-content;
+        margin-inline: auto;
+        overflow: hidden;
+        .activeTab {
+            position: absolute;
+            left: 0;
+            top: mixin.size(3);
+            height: mixin.size(30);
+            background-color: var(--primary-light);
+            border-radius: mixin.size(12);
+            height: mixin.size(30);
+            z-index: 0;
+            transition: all 0.3s ease-in-out;
+        }
+        .tabItem {
+            color: var(--foreground-light);
+            font-size: mixin.size(12);
+            font-weight: 600;
+            text-transform: capitalize;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            padding: 0 mixin.size(20);
+            height: mixin.size(30);
+            border-radius: mixin.size(12);
+            position: relative;
+            z-index: 0;
+            transition: all 0.3s ease-in-out;
+            @include mixin.min(768) {
+                font-size: mixin.size(13);
+            }
+            @include mixin.min(992) {
+                font-size: mixin.size(14);
+            }
+            &:focus,
+            &:active {
+                outline: none;
+                box-shadow: none;
+                background-color: transparent;
+                -webkit-tap-highlight-color: transparent;
+            }
+            &.active {
+                color: var(--primary);
+            }
+        }
+    }
+}

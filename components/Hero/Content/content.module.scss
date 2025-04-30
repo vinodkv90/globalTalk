@@ -1,0 +1,144 @@
+@use "@/styles/mixin";
+
+.content {
+    width: 100%;
+    .description {
+        max-width: mixin.size(369);
+        margin-top: mixin.size(12);
+        margin-bottom: 0;
+        @include mixin.min(576) {
+            margin-top: mixin.size(20);
+        }
+        @include mixin.min(768) {
+            margin-top: mixin.size(22);
+        }
+        @include mixin.min(992) {
+            margin-top: mixin.size(24);
+        }
+        @include mixin.min(1200) {
+            margin-top: mixin.size(26);
+        }
+        @include mixin.min(1400) {
+            margin-top: mixin.size(28);
+        }
+        @include mixin.min(1600) {
+            margin-top: mixin.size(30);
+        }
+    }
+    :global(.btn) {
+        margin-inline: auto;
+        margin-top: mixin.size(20);
+        @include mixin.min(576) {
+            margin-inline: 0;
+            margin-top: mixin.size(22);
+        }
+        @include mixin.min(768) {
+            margin-top: mixin.size(24);
+        }
+        @include mixin.min(992) {
+            margin-top: mixin.size(26);
+        }
+        @include mixin.min(1200) {
+            margin-top: mixin.size(28);
+        }
+        @include mixin.min(1400) {
+            margin-top: mixin.size(30);
+        }
+        @include mixin.min(1600) {
+            margin-top: mixin.size(32);
+        }
+    }
+    .features {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        width: 100%;
+        max-width: mixin.size(335);
+        margin-top: mixin.size(20);
+        margin-inline: auto;
+        @include mixin.min(576) {
+            margin-inline: 0;
+            justify-content: flex-start;
+            max-width: mixin.size(352);
+            margin-top: mixin.size(28);
+        }
+        @include mixin.min(768) {
+            margin-top: mixin.size(38);
+        }
+        @include mixin.min(992) {
+            margin-top: mixin.size(40);
+        }
+        @include mixin.min(1200) {
+            margin-top: mixin.size(48);
+        }
+        .feature {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            text-align: center;
+            @include mixin.min(576) {
+                justify-content: flex-start;
+                text-align: left;
+            }
+            .icon {
+                color: var(--primary);
+            }
+            .count {
+                font-family: var(--font-dela-gothic-one);
+                color: var(--foreground);
+                font-size: mixin.size(20);
+                font-weight: 400;
+                line-height: 1;
+                .plus {
+                    color: var(--primary);
+                }
+                @include mixin.min(576) {
+                    font-size: mixin.size(22);
+                }
+                @include mixin.min(768) {
+                    font-size: mixin.size(26);
+                }
+                @include mixin.min(992) {
+                    font-size: mixin.size(28);
+                }
+                @include mixin.min(1200) {
+                    font-size: mixin.size(32);
+                }
+                @include mixin.min(1400) {
+                    font-size: mixin.size(36);
+                }
+                @include mixin.min(1600) {
+                    font-size: mixin.size(40);
+                }
+            }
+            .featureLabel {
+                width: 100%;
+                margin-top: mixin.size(3);
+                color: var(--foreground-light);
+                font-size: mixin.size(12);
+                font-weight: 600;
+                line-height: 1.4;
+                @include mixin.min(576) {
+                    font-size: mixin.size(14);
+                    margin-top: mixin.size(5);
+                }
+                @include mixin.min(768) {
+                    font-size: mixin.size(16);
+                }
+                @include mixin.min(992) {
+                    font-size: mixin.size(17);
+                }
+                @include mixin.min(1200) {
+                    font-size: mixin.size(18);
+                }
+                @include mixin.min(1400) {
+                    font-size: mixin.size(20);
+                }
+                @include mixin.min(1600) {
+                    font-size: mixin.size(22);
+                }
+            }
+        }
+    }
+}

@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Button = ({children, variant, size='md', curved = true, className, ...rest}) => {
+const Button = ({type = 'button', children, variant, size='md', curved = true, className, ...rest}) => {
   return (
-    <button className={`btn ${variant || ''} ${size} ${curved ? 'curved' : null} ${className || null}`} {...rest}>{children}</button>
+    <button type={type} className={`btn ${variant || ''} ${size} ${curved ? 'curved' : null} ${className || null}`} {...rest}>{children}</button>
   )
 }
 

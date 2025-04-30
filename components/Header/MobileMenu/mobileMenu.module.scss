@@ -86,6 +86,7 @@
 }
 
 .overlay {
+    pointer-events: none;
     position: fixed;
     left: 0;
     top: mixin.size(59);
@@ -93,9 +94,10 @@
     width: 100%;
     height: calc(200dvh - mixin.size(59));
     opacity: 0;
-    transition: 0.3s all ease-in-out;
+    transition: 0.3s opacity ease-in-out;
     &.open {
         opacity: 1;
+        pointer-events: all;
     }
 }
 

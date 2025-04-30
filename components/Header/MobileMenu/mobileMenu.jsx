@@ -33,7 +33,7 @@ const MobileMenu = ({data}) => {
               x: 0
             }}
             exit={{
-              x: -360
+              x: -400
             }}
             transition={{
               type: "spring",
@@ -53,7 +53,7 @@ const MobileMenu = ({data}) => {
                       }} 
                       animate={{
                         x: 0, 
-                        opacity: 1
+                        opacity: status ? 1 : 0
                       }}
                       exit={{
                         x: -30, 
