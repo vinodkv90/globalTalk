@@ -5,8 +5,6 @@ import { getToken } from '@/util/authUtil';
 
 export const useHeader = () => {
   const [parsedData, setParsedData] = useState(null);
-  const { user } = useContext(User)
-  const { token, setToken } = useContext(Token)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,14 +16,8 @@ export const useHeader = () => {
         console.error('Error in useHeader:', error);
       }
     };
-
-    const tkn = getToken()
-    if(tkn) {
-      setToken(tkn)
-    }
-
     fetchData();
   }, []);
 
-  return { parsedData, token, user };
+  return { parsedData };
 };

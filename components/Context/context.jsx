@@ -1,4 +1,5 @@
 "use client"
+import { getToken } from '@/util/authUtil'
 import React, { createContext, useEffect, useState } from 'react'
 
 export const Loader = createContext(null)
@@ -9,12 +10,21 @@ const Context = ({children}) => {
     const[user, setUser] = useState(null)
     const[token, setToken] = useState(null)
     const[loading, setLoading] = useState(true)
+    
     useEffect(() => {
-      const name = localStorage.getItem('name')
-      if(name) {
-        setUser(JSON.parse(name))
+      if(localStorage.getItem('name')) {
+        const name = localStorage.getItem('name')
+        if(name) {
+          setUser(JSON.parse(name))
+        }
       }
-    }, [token])
+      if(getToken()) {
+        const tkn = getToken()
+        if(tkn) {
+          setToken(tkn)
+        }
+      }
+    }, [user, token])
     
     return (
       <User.Provider value={{user, setUser}}>

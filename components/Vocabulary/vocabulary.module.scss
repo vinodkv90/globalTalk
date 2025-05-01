@@ -4,7 +4,7 @@
     background-color: var(--shade);
     padding: mixin.size(45) 0 0;
     @include mixin.min(768) {
-        padding: mixin.size(70) 0;
+        padding: mixin.size(70) 0 0;
     }
     :global(.row) {
         align-items: center;

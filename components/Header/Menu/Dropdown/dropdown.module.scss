@@ -12,7 +12,7 @@
     transition: 0.3s opacity ease-in-out, 0.3s visibility ease-in-out, 0.3s transform ease-in-out;
     .dropdownList {
         background-color: var(--background);
-        border: mixin.size(1) solid var(--border);
+        border: mixin.size(1) solid var(--border-light);
         padding: mixin.size(10) ;
         width: max-content;
         a {

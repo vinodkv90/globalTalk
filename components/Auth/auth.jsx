@@ -1,12 +1,21 @@
 'use client'
-import { useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import Tabs from '../Tabs'
 import styles from './auth.module.scss'
 import Login from './Login'
 import Register from './Register'
+import { redirect } from 'next/navigation'
+import { Token } from '../Context/context'
 
 const Auth = () => {
   const [activeItem, setActiveItem] = useState(tab[0])
+  const { token } = useContext(Token)
+  useEffect(() => {
+    if(token) {
+      redirect('/')
+    }
+  }, [])
+  
   return (
     <section className={`full-height ${styles.auth}`}>
       <div className="container">
